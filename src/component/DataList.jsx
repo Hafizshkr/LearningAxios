@@ -5,30 +5,29 @@ const DataList = ({listOfItem}) => {
     console.log(listOfItem)
   return (
     <>
+     
+    
+    <div className="container flex justify-center pb-10 flex-wrap ">
     {listOfItem.map((products) =>
+    <div className=" max-w-sm rounded overflow-hidden shadow-lg text-black mx-2 my-2" key={products.id}>
+      <img className="w-full" src={products.thumbnail}/>
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2">{products.title}</div>
+        <div className="font-semibold text-xl mb-2">RM {products.price}</div>
+        <p className="text-black-700 text-base">
+        {products.description}
+        </p>
+      </div>
+      <div className="px-6 pt-4 pb-2">
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{products.category}</span>
+      </div>
+    </div>
     
-    <tbody key={products.id}>
+    
+    )}
+    </div>
 
-       <tr class="  odd:bg-white even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-black">
-                    {products.title}
-                </th>
-                <td class="px-6 py-4 text-black">
-                    {products.category}
-                </td>
-                <td class="px-6 py-4 text-black">
-                {products.price}
-                </td>
-                <td class="text-center px-6 py-4 text-black">
-                {products.description}
-                </td>
-                <td class="px-6 py-4 text-black ">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline h-2 w-2"><img src={products.thumbnail}/></a>
-                </td>
-            </tr>
     
-    
-    </tbody> )}
     
     </>
   )
