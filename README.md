@@ -1,7 +1,7 @@
-
 Learn how to fetch using Axios
 
-the purpose of this website is to learn how to fetch data from public API, I'm using data from https://dummyjson.com/docs/products/. What i have learnt from this project is, 
+the purpose of this website is to learn how to fetch data from public API, I'm using data from https://dummyjson.com/docs/products/. What i have learnt from this project is,
+
 1. fetch data
 2. useState()
 3. useEffect()
@@ -22,15 +22,10 @@ fetch('https://dummyjson.com/products')
 .then(console.log);
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` |  https://dummyjson.com/products|
-
-
-
-
+| Parameter | Type     | Description                    |
+| :-------- | :------- | :----------------------------- |
+| `api_key` | `string` | https://dummyjson.com/products |
 
 ## Demo
 
 https://learningaxios.vercel.app/
-

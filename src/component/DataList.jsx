@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 const DataList = ({ listOfItem }) => {
   const [search, setSearch] = useState("");
 
@@ -106,9 +105,12 @@ const DataList = ({ listOfItem }) => {
         <div className="right-side w-full md:w-3/4 lg:w-4/5">
           <div className="w flex justify-center  flex-wrap  mt-5">
             {listOfItem
-              .filter((products) =>
-                (selectedCategory === "" || products.category === selectedCategory) && products.title.toLowerCase().includes(search.toLowerCase())
-                )
+              .filter(
+                (products) =>
+                  (selectedCategory === "" ||
+                    products.category === selectedCategory) &&
+                  products.title.toLowerCase().includes(search.toLowerCase())
+              )
               .map((products) => (
                 <div
                   className="max-w-sm rounded overflow-hidden shadow-lg text-black mx-2 my-2"
