@@ -103,7 +103,7 @@ const Home = ({ listOfItem }) => {
           </div>
         </div>
         <div className="right-side w-full md:w-3/4 lg:w-4/5">
-          <div className="w flex justify-center  flex-wrap  mt-5">
+          <div className=" flex justify-center  flex-wrap  mt-5">
             {listOfItem
               .filter(
                 (products) =>
@@ -113,7 +113,7 @@ const Home = ({ listOfItem }) => {
               )
               .map((products) => (
                 <div
-                  className="max-w-sm rounded overflow-hidden shadow-lg text-black mx-2 my-2"
+                  className="max-w-sm rounded overflow-hidden shadow-xl text-black mx-2 my-2 "
                   key={products.id}
                 >
                   <img className="w-full" src={products.thumbnail} />
