@@ -1,27 +1,29 @@
-import React from "react";
-import { useEffect, useState } from "react";
 import axios from "axios";
-import DataList from "./component/DataList.jsx";
+import Home from "./component/Home.jsx"
+import { useQuery } from "@tanstack/react-query";
 
 const App = () => {
   const url = "https://dummyjson.com/products";
+  const fetchData = async () => {
+    const res = await axios.get(url);
+    return res.data;
+  };
+  const { isFetching, data, error } = useQuery({
+    queryKey: ["App"],
+    queryFn: fetchData,
+  });
 
-  const [listOfItem, setListOfItem] = useState([]);
+  if (isFetching) {
+    return <span>Loading....</span>;
+  }
 
-  useEffect(() => {
-    axios
-      .get(url)
-      .then((res) => {
-        setListOfItem(res.data.products);
-      })
-      .catch((error) => {
-        console.log("error");
-      });
-  }, []);
+  if (error) {
+    return <span>Error:{error.message}</span>;
+  }
 
   return (
     <>
-      <DataList listOfItem={listOfItem} />
+      <Home listOfItem={data.products} />
     </>
   );
 };
