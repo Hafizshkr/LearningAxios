@@ -24,7 +24,7 @@ const Home = ({ listOfItem }) => {
 
       <div className="main-body flex  justify-center item-center flex-row">
         <div className="left-side w-full md:w-1/2 lg:w-1/5  md-hidden ">
-          <div className="flex sm:pl-1 lg:pl-3 xl:pl-5 md:pl-5g mt-6 lg:ml-[150px] md:ml-[100px] sm:ml-[50px]  border rounded-xl h-[300px] py-5 px-3 shadow-xl ">
+          <div className="flex sm:pl-1 lg:pl-3 xl:pl-5 md:pl-5 mt-6 lg:ml-[150px] md:ml-[100px] sm:ml-[50px]  border rounded-xl h-[300px] py-5 px-3 shadow-xl ">
             <form action="">
               <div className="flex flex-col ">
                 <h1 className="pb-3 text-xl bold">Categories</h1>
