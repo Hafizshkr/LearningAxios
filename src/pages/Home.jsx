@@ -1,21 +1,20 @@
 // Home.jsx
-import FetchData from "../component/FetchData.jsx";
-import useStore from "../component/Store.jsx";
 import Card from "../component/Card";
 import CategoryFilter from "../component/CategoryFilter";
 import { useState } from "react";
 import Search from "../component/Search";
+import useProducts from "../hooks/useProducts.jsx";
+import LoadingAnimation from "../component/LoadingAnimation.jsx";
 
 const Home = () => {
-  const { data } = useStore();
+  // const { data } = useStore();
+  const { isFetching, error, products } = useProducts();
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectorCategory] = useState("");
 
   const handleCategory = (category) => {
     setSelectorCategory(category);
   };
-
-  console.log(data.products);
 
   return (
     <>
@@ -30,22 +29,31 @@ const Home = () => {
             handleCategory={handleCategory}
           />
         </div>
-        <div className="right-side w-full md:w-3/4 lg:w-4/5">
-          <FetchData />
-          <div className="flex justify-center flex-wrap mt-5">
-            {data &&
-              data.products &&
-              data.products
-                .filter(
-                  (product) =>
-                    (selectedCategory === "" ||
-                      product.category === selectedCategory) &&
-                    product.title.toLowerCase().includes(search.toLowerCase())
-                )
+        {isFetching ? (
+          <LoadingAnimation />
+        ) : (
+          <div className="right-side w-full md:w-3/4 lg:w-4/5">
+            <div className="flex justify-center flex-wrap mt-5">
+              {products &&
+                products
+                  .filter(
+                    (product) =>
+                      (selectedCategory === "" ||
+                        product.category === selectedCategory) &&
+                      product.title.toLowerCase().includes(search.toLowerCase())
+                  )
 
-                .map((product) => <Card key={product.id} product={product} />)}
+                  .map((product) => (
+                    <Card key={product.id} product={product} />
+                  ))}
+            </div>
           </div>
-        </div>
+        )}
+        {error !== null ? (
+          <span className="flex justify-center items-center pt-20">
+            Error:{error.message}
+          </span>
+        ) : null}
       </div>
     </>
   );
