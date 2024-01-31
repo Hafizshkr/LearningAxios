@@ -1,6 +1,6 @@
 // Home.jsx
 import FetchData from "../component/FetchData.jsx";
-import useStore from "../component/store";
+import useStore from "../component/Store.jsx";
 import Card from "../component/Card";
 import CategoryFilter from "../component/CategoryFilter";
 import { useState } from "react";

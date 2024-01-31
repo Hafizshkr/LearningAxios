@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import LoadingAnimation from "./LoadingAnimation";
-import useStore from "./store";
+import useStore from "./Store.jsx";
 
 const FetchData = () => {
   const { data: Data, setData } = useStore(); // variable for store in zustand.
