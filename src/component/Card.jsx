@@ -1,11 +1,12 @@
-// Card.jsx
 import React from "react";
-import useStore from "./store";
 
 const Card = ({ product }) => {
   return (
     <>
-      <div className="max-w-sm rounded overflow-hidden shadow-xl text-black mx-2 my-2" key={product.id}>
+      <div
+        className="max-w-sm rounded overflow-hidden shadow-xl text-black mx-2 my-2"
+        key={product.id}
+      >
         <img className="w-full" src={product.thumbnail} alt={product.title} />
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{product.title}</div>
